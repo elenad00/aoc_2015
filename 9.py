@@ -20,11 +20,20 @@ The possible routes are therefore:
 The shortest of these is London -> Dublin -> Belfast = 605, and so the answer is 605 in this example.
 
 What is the distance of the shortest route?
+
+Part Two:
+The next year, just to show off, Santa decides to take the route with the longest distance instead.
+
+He can still start and end at any two (different) locations he wants, and he still must visit each location exactly once.
+
+For example, given the distances above, the longest route would be 982 via (for example) Dublin -> London -> Belfast.
+
+What is the distance of the longest route?
 """
 
 from data.d9 import input_data
 
-def parse_coords(data_in):
+def parse_coords(data_in, rv):
     distances = {}
     for line in data_in:
         locations, distance = line.split(" = ")
@@ -42,7 +51,7 @@ def parse_coords(data_in):
             distances[location_b] = [coords_from_b]
     for val in distances:
         distances[val] = sorted(
-            distances[val], key=lambda item: item[1])
+            distances[val], key=lambda item: item[1], reverse=rv)
     return distances
 
 def get_next_stop(distances, current_point, visited):
@@ -75,8 +84,8 @@ test_data = [
             
 def part_one():
     smallest_distance = 10000
-    # distances = parse_coords(data_in=test_data)
-    distances = parse_coords(data_in=input_data)
+    # distances = parse_coords(data_in=test_data, rv=False)
+    distances = parse_coords(data_in=input_data, rv=False)
     for starting_point in distances:
         travelled = plan_route(distances, starting_point)
         if travelled < smallest_distance:
@@ -85,6 +94,15 @@ def part_one():
     return # 117
 
 def part_two():
+    greatest_distance = 0
+    distances = parse_coords(data_in=test_data, rv=True)
+    distances = parse_coords(data_in=input_data, rv=True)
+    for starting_point in distances:
+        travelled = plan_route(distances, starting_point)
+        if travelled > greatest_distance:
+            greatest_distance = travelled
+    print(greatest_distance)
+    return # 909
     return
 
 part_one()
