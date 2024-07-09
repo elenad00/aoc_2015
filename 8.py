@@ -10,8 +10,7 @@
 # - \x plus two hexadecimal characters (which represents a single character with that ASCII code).
 
 # Disregarding whitespace, what is the number of characters of code for string literals minus the number of characters in memory for the values of the strings in total for the entire file?
-# ''' 
-# '''
+
 # Part Two
 # Now, let's go the other way. 
 # In addition to finding the number of characters of code, you should now encode each code representation as a new string and find the number of characters of the new encoded representation, including the surrounding double quotes.
