@@ -95,7 +95,7 @@ def part_one():
 
 def part_two():
     greatest_distance = 0
-    distances = parse_coords(data_in=test_data, rv=True)
+    # distances = parse_coords(data_in=test_data, rv=True)
     distances = parse_coords(data_in=input_data, rv=True)
     for starting_point in distances:
         travelled = plan_route(distances, starting_point)
@@ -103,7 +103,6 @@ def part_two():
             greatest_distance = travelled
     print(greatest_distance)
     return # 909
-    return
 
 part_one()
 part_two()
