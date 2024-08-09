@@ -24,6 +24,9 @@ For example:
     ghijklmn -> ghjaabcc
 
 Given Santa's current password (your puzzle input), what should his next password be?
+
+Part Two:
+What should Santa's next password be?
 """
 import re
 
