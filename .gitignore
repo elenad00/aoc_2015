@@ -1,3 +1,3 @@
 *.cpython-311.pyc
-/data
+*data
 .vscode

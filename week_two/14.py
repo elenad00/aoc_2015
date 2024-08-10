@@ -1,5 +1,5 @@
 """
-anta would like to know which of his reindeer is fastest, and so he has them race.
+Santa would like to know which of his reindeer is fastest, and so he has them race.
 
 Reindeer can only either be:
     flying (always at their top speed)
