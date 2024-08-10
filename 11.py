@@ -28,9 +28,6 @@ Given Santa's current password (your puzzle input), what should his next passwor
 Part Two:
 What should Santa's next password be?
 """
-import re
-
-
 def test_validity(password):
     ''' check the password validity '''
     letters = ["i","o","l"]

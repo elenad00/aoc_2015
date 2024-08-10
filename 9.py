@@ -31,6 +31,7 @@ For example, given the distances above, the longest route would be 982 via (for 
 What is the distance of the longest route?
 """
 
+from typing import Any
 from data.d9 import input_data
 
 def parse_coords(data_in, rv):
@@ -54,24 +55,25 @@ def parse_coords(data_in, rv):
             distances[val], key=lambda item: item[1], reverse=rv)
     return distances
 
-def get_next_stop(distances, current_point, visited):
+def get_next_stop(distances, current_point, visited) -> Any:
     choices = distances[current_point]
     for possible in choices:
         city, distance = possible
         if city not in visited:
-            # print(f"Next stop: {city} - {distance} miles")
             current_point = city
             visited.append(city)
             return city, distance, visited
                 
 def plan_route(distances, starting_point):
-    # print(f"Starting from {starting_point}")
     visited = [starting_point]
     total_distance = 0
     current_point = starting_point
     for stop in range(len(distances)-1):
         current_point, distance, visited = get_next_stop(
-            distances, current_point, visited)
+            distances, 
+            current_point, 
+            visited
+        )
         total_distance+=distance
     return total_distance
           
